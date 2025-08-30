@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Exam.h"
 
 using namespace std;

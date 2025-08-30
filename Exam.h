@@ -1,6 +1,8 @@
+#pragma once
 #include "Player.h"
 #include "ExamPart.h"
 #include <vector>
+#include <iostream>
 
 class Exam
 {
