@@ -43,7 +43,14 @@ bool Player::playerAction(int type,Exam &_exam){
 
 void Player::playerRest(Exam &_exam)
 {
-
+    int restTime = _exam.getRestTime();
+    if(restTime >= 1){
+        _exam.setRestTime(restTime - 1);
+        _exam.rest();
+    }
+    else{
+        cout<<"No enough time!"<<endl;
+    }
 }
 
 void Player::playerSolve(Exam &_exam)
