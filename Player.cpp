@@ -1,5 +1,5 @@
 #include "Player.h"
-
+#include "Exam.h"
 using namespace std;
 
 Player::Player(int ability_):ability(ability_)
@@ -19,7 +19,7 @@ int Player::getPlayerAbility(){
     return ability;
 }
 
-bool Player::playerAction(int type,Exam &_exam,int part){
+bool Player::playerAction(int type,Exam &_exam){
     switch (type)
     {
     case 0:
@@ -27,11 +27,15 @@ bool Player::playerAction(int type,Exam &_exam,int part){
         return true;
         break;
     case 1:
-        this->playerSolve(_exam,part);
+        this->playerSolve(_exam);
         return true;
         break;
     case 2:
         this->playerStratgy(_exam);
+        return true;
+        break;
+    case 3:
+        this->seeExamData(_exam);
         return true;
         break;
     default:
@@ -53,7 +57,7 @@ void Player::playerRest(Exam &_exam)
     }
 }
 
-void Player::playerSolve(Exam &_exam,int part)
+void Player::playerSolve(Exam &_exam)
 {
     int difficulty = _exam.getDifficulty();
 
@@ -78,4 +82,9 @@ void Player::playerSolve(Exam &_exam,int part)
 void Player::playerStratgy(Exam &_exam)
 {
     _exam.useStrategy();
+}
+
+void Player::seeExamData(Exam &_exam)
+{
+    _exam.printData();
 }

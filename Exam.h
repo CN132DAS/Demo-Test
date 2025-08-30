@@ -1,9 +1,9 @@
 #pragma once
-#include "Player.h"
 #include "ExamPart.h"
 #include <vector>
 #include <iostream>
 
+class Player;
 class Exam
 {
 private:
@@ -34,11 +34,13 @@ public:
     void setEnvironment(int val);
     void setRestTime(int val);
 
-    bool setPartRatio(vector<int>);
+    bool setPartRatio(std::vector<int>);
 
     const bool isOver();
 
     void rest();
     void solve(int,int);
     void useStrategy();
+
+    void printData();
 };

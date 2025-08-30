@@ -1,4 +1,4 @@
-#pragma
+#pragma once
 
 class ExamPart {
 
@@ -9,7 +9,7 @@ private:
 public:
     ExamPart(int _ratio):ratio(_ratio){};
     ExamPart(){};
-    ~ExamPart();
+    ~ExamPart(){};
 
     int getPartRatio();
     int getPartCompleteness();
@@ -20,4 +20,6 @@ public:
     void addPartCompleteness(int);
 
     bool isComplete();
+
+    void printPartData();
 };

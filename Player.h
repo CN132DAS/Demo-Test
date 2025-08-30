@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Exam.h"
 
+class Exam;
 class Player
 {
 private:
@@ -11,9 +12,10 @@ public:
     ~Player();
     void showPlayerAbility();
     int getPlayerAbility();
-    bool playerAction(int type,Exam &_exam,int part);
+    bool playerAction(int type,Exam &_exam);
     void playerRest(Exam &_exam);
-    void playerSolve(Exam &_exam,int part);
+    void playerSolve(Exam &_exam);
     void playerStratgy(Exam &_exam);
+    void seeExamData(Exam &_exam);
 };
 

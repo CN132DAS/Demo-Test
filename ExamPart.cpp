@@ -26,7 +26,7 @@ void ExamPart::setPartRatio(int _ratio)
 
 void ExamPart::setPartCompleteness(int _completeness)
 {
-    if(_completeness > 0 && completeness <= 100){
+    if(_completeness > 0 && completeness <= ratio){
         completeness = _completeness;
     }
     else {
@@ -44,13 +44,18 @@ void ExamPart::addPartCompleteness(int _addition)
         cout <<"INVALID additon, must >=0"<<endl;
     }
 
-    if(completeness >= 100){
+    if(completeness >= ratio){
         cout<<"This part finished"<<endl;
-        completeness = 100;
+        completeness = ratio;
     }
 }
 
 bool ExamPart::isComplete()
 {
-    return (completeness == 100);
+    return (completeness == ratio);
+}
+
+void ExamPart::printPartData()
+{
+    cout<<"ratio: "<<ratio<<" completeness: "<<completeness<<endl;
 }
