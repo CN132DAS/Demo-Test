@@ -11,28 +11,28 @@ Exam::Exam(int difficulty_, Player player):difficulty(difficulty_){
     cout<<"Exam difficulty:"<<difficulty<<endl;
 }
 
-Exam::int getCompleteness(){
-    return this.completeness;
+int Exam::getCompleteness(){
+    return this->completeness;
 }
 
-Exam::int getEnergy(){
-    return this.energy;
+int Exam::getEnergy(){
+    return this->energy;
 }
-Exam::int getSan()[
-    return this.san;
-]
-Exam::int getEnvironment(){
-    return this.environment;
+int Exam::getSan(){
+    return this->san;
 }
-Exam::void setCompleteness(int val){
-    this.completeness = val;
+int Exam::getEnvironment(){
+    return this->environment;
 }
-Exam::void setEnergy(int val){
-    this.energy = val;
+void Exam::setCompleteness(int val){
+    this->completeness = val;
 }
-Exam::void setSan(int val){
-    this.val = val;
+void Exam::setEnergy(int val){
+    this->energy = val;
 }
-Exam::void setEnvironment(int val){
-    this.environment = val;
+void Exam::setSan(int val){
+    this->san = val;
+}
+void Exam::setEnvironment(int val){
+    this->environment = val;
 }
