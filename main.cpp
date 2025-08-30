@@ -4,6 +4,17 @@
 
 using namespace std;
 
+vector<int> inputRatioVector(Exam &_exam){
+    cout<<"Please set exam parts ratio"<<endl;
+    vector<int> ratio_vec;
+    for(int part_id = 0; part_id < _exam.getPartNum(); part_id ++){
+        cout<<"Part #"<<part_id+1<<" ratio: ";
+        int tmp = 0;
+        cin >> tmp;
+        ratio_vec.push_back(tmp);
+    }
+}
+
 int main(){
     cout<<"Please set your player ability: ";
     int playerAbility = 1;
@@ -18,20 +29,12 @@ int main(){
 
     Exam myExam(difficulty,3,120,*myPlayer);
 
+    while(myExam.setPartRatio(inputRatioVector(myExam))){}
+    
     cout<<"Exam begins..."<<endl;
-    bool flag = false;
-    // for(int part = 1;part<=3;part++){
-    //     cout<<"Exam part:"<<part<<endl;
-    //     cout<<"Select action: ";
-    //     int action = -1;
-    //     while(true){
-    //         cin >> action;
-    //         cout << endl;
-    //         if()
-    //         if(myPlayer->playerAction(action,myExam,part))
-    //             break;
-    //     }
-    // }
+    while(!myExam.isOver()){
+
+    }
     
     if(myExam.getRestTime()>0){
         int a;

@@ -48,7 +48,7 @@ void Player::playerRest(Exam &_exam)
         _exam.setRestTime(restTime - 1);
         _exam.rest();
     }
-    else{
+    else{//maybe useless
         cout<<"No enough time!"<<endl;
     }
 }
@@ -56,13 +56,26 @@ void Player::playerRest(Exam &_exam)
 void Player::playerSolve(Exam &_exam,int part)
 {
     int difficulty = _exam.getDifficulty();
-    cout<<"Time to spend: ";
-    int time;
-    cin>>time;
 
+    cout<<"Time to spend: ";
+    int solveTime;
+    cin>>solveTime;
+
+    cout<<"Part to solve: ";
+    int part;
+    cin >> part;
+
+    int restTime = _exam.getRestTime();
+    if(solveTime > restTime){
+        _exam.setRestTime(0);
+    }
+    else{
+        _exam.setRestTime(restTime - solveTime);
+        _exam.solve(part,solveTime);
+    }
 }
 
 void Player::playerStratgy(Exam &_exam)
 {
-    cout<<"You used some kind of stratagy,which made you feel determined."
+    _exam.useStrategy();
 }

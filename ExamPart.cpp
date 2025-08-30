@@ -37,11 +37,16 @@ void ExamPart::setPartCompleteness(int _completeness)
 
 void ExamPart::addPartCompleteness(int _addition)
 {
-    if(_addition>0){
+    if(_addition>=0){
         completeness += _addition;
     }
     else{
-        cout <<"INVALID additon, must >0"<<endl;
+        cout <<"INVALID additon, must >=0"<<endl;
+    }
+
+    if(completeness >= 100){
+        cout<<"This part finished"<<endl;
+        completeness = 100;
     }
 }
 
