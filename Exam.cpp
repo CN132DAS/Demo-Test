@@ -3,16 +3,29 @@
 
 using namespace std;
 
-Exam::Exam(int difficulty_, int time):difficulty(difficulty_),restTime(time){
+
+Exam::Exam(int difficulty_, int part_num, int time, Player player):
+partNum    (part_num),
+restTime   (time),
+difficulty (difficulty_ > player.getPlayerAbility()? difficulty - player.getPlayerAbility() :1)
+{
+    parts = new ExamPart[partNum];
+    cout<<"Exam part num:"<<part_num<<endl;
     cout<<"Exam difficulty:"<<difficulty<<endl;
+    cout<<"Exam time:"<<restTime<<endl;
 }
 
-Exam::Exam(int difficulty_, int time, Player player):difficulty(difficulty_),restTime(time){
-    cout<<"Exam difficulty:"<<difficulty<<endl;
+Exam::~Exam()
+{
+    delete[] parts;
 }
 
 int Exam::getCompleteness(){
-    return this->completeness;
+    double _completeness = 0;
+    for(int i = 0; i < partNum; i++){
+        _completeness += parts[i].getPartRatio() * parts[i].getPartCompleteness();
+    }
+    return _completeness;
 }
 int Exam::getEnergy(){
     return this->energy;
@@ -26,9 +39,12 @@ int Exam::getEnvironment(){
 int Exam::getRestTime(){
     return this->restTime;
 }
-void Exam::setCompleteness(int val){
-    this->completeness = val;
+
+int Exam::getDificulty()
+{
+    return difficulty;
 }
+
 void Exam::setEnergy(int val){
     this->energy = val;
 }

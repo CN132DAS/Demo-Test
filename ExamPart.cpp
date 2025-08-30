@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int ExamPart::getPartRatio()
+double ExamPart::getPartRatio()
 {
     return this->ratio;
 }
@@ -13,7 +13,7 @@ int ExamPart::getPartCompleteness()
     return this->completeness;
 }
 
-void ExamPart::setPartRatio(int _ratio)
+void ExamPart::setPartRatio(double _ratio)
 {
     if(_ratio > 0 && _ratio <= 100){
         ratio = _ratio;
