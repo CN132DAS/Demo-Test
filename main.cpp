@@ -14,21 +14,25 @@ int main(){
     cout<<"Please set exam difficulty: ";
     int difficulty = 1;
     cin>>difficulty;
-    Exam myExam(difficulty,120);
     cout<<endl;
 
+    Exam myExam(difficulty,3,120,*myPlayer);
+
     cout<<"Exam begins..."<<endl;
-    for(int part = 1;part<=3;part++){
-        cout<<"Exam part:"<<part<<endl;
-        cout<<"Select action: ";
-        int action = -1;
-        while(true){
-            cin >> action;
-            cout << endl;
-            if(myPlayer->playerAction(action,myExam,part))
-                break;
-        }
-    }
+    bool flag = false;
+    // for(int part = 1;part<=3;part++){
+    //     cout<<"Exam part:"<<part<<endl;
+    //     cout<<"Select action: ";
+    //     int action = -1;
+    //     while(true){
+    //         cin >> action;
+    //         cout << endl;
+    //         if()
+    //         if(myPlayer->playerAction(action,myExam,part))
+    //             break;
+    //     }
+    // }
+    
     if(myExam.getRestTime()>0){
         int a;
     }

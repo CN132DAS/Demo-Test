@@ -56,10 +56,13 @@ void Player::playerRest(Exam &_exam)
 void Player::playerSolve(Exam &_exam,int part)
 {
     int difficulty = _exam.getDifficulty();
-    
+    cout<<"Time to spend: ";
+    int time;
+    cin>>time;
+
 }
 
 void Player::playerStratgy(Exam &_exam)
 {
-    
+    cout<<"You used some kind of stratagy,which made you feel determined."
 }
