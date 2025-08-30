@@ -25,7 +25,7 @@ int main(){
         while(true){
             cin >> action;
             cout << endl;
-            if(myPlayer->playerAction(action,myExam))
+            if(myPlayer->playerAction(action,myExam,part))
                 break;
         }
     }

@@ -1,4 +1,4 @@
-#include "player.h"
+#include "Player.h"
 
 using namespace std;
 
@@ -19,7 +19,7 @@ int Player::getPlayerAbility(){
     return ability;
 }
 
-bool Player::playerAction(int type,Exam &_exam){
+bool Player::playerAction(int type,Exam &_exam,int part){
     switch (type)
     {
     case 0:
@@ -27,7 +27,7 @@ bool Player::playerAction(int type,Exam &_exam){
         return true;
         break;
     case 1:
-        this->playerSolve(_exam);
+        this->playerSolve(_exam,part);
         return true;
         break;
     case 2:
@@ -53,9 +53,10 @@ void Player::playerRest(Exam &_exam)
     }
 }
 
-void Player::playerSolve(Exam &_exam)
+void Player::playerSolve(Exam &_exam,int part)
 {
-
+    int difficulty = _exam.getDifficulty();
+    
 }
 
 void Player::playerStratgy(Exam &_exam)
