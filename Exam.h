@@ -17,10 +17,12 @@ public:
     int getSan();
     int getEnvironment();
     int getRestTime();
-    
     void setCompleteness(int val);
     void setEnergy(int val);
     void setSan(int val);
     void setEnvironment(int val);
+    void setRestTime(int val);
+
+    void rest();
     ~Exam();
 };
