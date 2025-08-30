@@ -45,6 +45,11 @@ int Exam::getDificulty()
     return difficulty;
 }
 
+int Exam::getPartNum()
+{
+    return partNum;
+}
+
 void Exam::setEnergy(int val){
     this->energy = val;
 }
@@ -57,6 +62,30 @@ void Exam::setEnvironment(int val){
 
 void Exam::setRestTime(int val){
     this->restTime = val;
+}
+
+bool Exam::setPartRatio(vector<int> ratio_vec)
+{
+    if (ratio_vec.size() != partNum ){
+        cout<<"Error! ratio vec length wrong"<<endl;
+        return false;
+    }
+    else{
+        int total_ratio = 0;
+        for(int i = 0; i < ratio_vec.size(); i++){
+            total_ratio += ratio_vec[i];
+        }
+        if (total_ratio != 100){
+            cout << "Error! total ratio != 100"<<endl;
+            return false;
+        }
+        else {
+            for(int i = 0; i < ratio_vec.size(); i++){
+                parts[i].setPartRatio(ratio_vec[i]);
+            }
+            return true;
+        }
+    }
 }
 
 void Exam::rest(){

@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "ExamPart.h"
+#include <vector>
 
 class Exam
 {
@@ -23,11 +24,14 @@ public:
     int getEnvironment();
     int getRestTime();
     int getDificulty();
+    int getPartNum();
 
     void setEnergy(int val);
     void setSan(int val);
     void setEnvironment(int val);
     void setRestTime(int val);
+    
+    bool setPartRatio(vector<int>);
 
     void rest();
     
