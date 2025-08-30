@@ -13,6 +13,7 @@ vector<int> inputRatioVector(Exam &_exam){
         cin >> tmp;
         ratio_vec.push_back(tmp);
     }
+    return ratio_vec;
 }
 
 int main(){
@@ -29,11 +30,14 @@ int main(){
 
     Exam myExam(difficulty,3,120,*myPlayer);
 
-    while(myExam.setPartRatio(inputRatioVector(myExam))){}
-    
+    while(!myExam.setPartRatio(inputRatioVector(myExam))){}
+
     cout<<"Exam begins..."<<endl;
     while(!myExam.isOver()){
-
+        cout<<"======\nPlease act:\n0: rest\n1: solve\n2: strategy\n3: show data\n======="<<endl;
+        int op_num;
+        cin>>op_num;
+        myPlayer->playerAction(op_num,myExam);
     }
     
     if(myExam.getRestTime()>0){
