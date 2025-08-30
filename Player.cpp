@@ -19,7 +19,7 @@ int Player::getPlayerAbility(){
     return ability;
 }
 
-bool Player::playerAction(int type,Exam &_exam){
+bool Player::playerAction(int type,Exam &_exam,int part){
     switch (type)
     {
     case 0:
@@ -27,7 +27,7 @@ bool Player::playerAction(int type,Exam &_exam){
         return true;
         break;
     case 1:
-        this->playerSolve(_exam);
+        this->playerSolve(_exam,part);
         return true;
         break;
     case 2:
@@ -53,12 +53,16 @@ void Player::playerRest(Exam &_exam)
     }
 }
 
-void Player::playerSolve(Exam &_exam)
+void Player::playerSolve(Exam &_exam,int part)
 {
+    int difficulty = _exam.getDifficulty();
+    cout<<"Time to spend: ";
+    int time;
+    cin>>time;
 
 }
 
 void Player::playerStratgy(Exam &_exam)
 {
-    
+    cout<<"You used some kind of stratagy,which made you feel determined."
 }

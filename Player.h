@@ -11,9 +11,9 @@ public:
     ~Player();
     void showPlayerAbility();
     int getPlayerAbility();
-    bool playerAction(int type,Exam &_exam);
+    bool playerAction(int type,Exam &_exam,int part);
     void playerRest(Exam &_exam);
-    void playerSolve(Exam &_exam);
+    void playerSolve(Exam &_exam,int part);
     void playerStratgy(Exam &_exam);
 };
 
