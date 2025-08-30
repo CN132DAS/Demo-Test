@@ -3,13 +3,18 @@
 class ExamPart {
 
 private:
-    int ratio = 0;
+    double ratio = 0;
     int completeness = 0;
+
 public:
-    int getPartRatio();
+    ExamPart(double _ratio):ratio(_ratio){};
+    ExamPart(){};
+    ~ExamPart();
+
+    double getPartRatio();
     int getPartCompleteness();
 
-    void setPartRatio(int);
+    void setPartRatio(double);
     void setPartCompleteness(int);
 
     void addPartCompleteness(int);
