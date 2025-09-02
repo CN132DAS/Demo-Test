@@ -2,24 +2,41 @@
 
 class ExamPart {
 
+public:
+    const int point = 0;
+    const int difficulty = 1;
+    const int player_ability;
+
 private:
-    int ratio = 0;
-    int completeness = 0;
+    
+    int completed_point = 0;
+    int expected_point = 0;
+    double sigma = 0;
 
 public:
-    ExamPart(int _ratio):ratio(_ratio){};
-    ExamPart(){};
+    ExamPart(int _point, int _difficulty, int _ability):
+    point(_point),
+    player_ability(_ability),
+    difficulty(_difficulty)
+    {};
+    
     ~ExamPart(){};
 
-    int getPartRatio();
-    int getPartCompleteness();
+    //get functions
+    int getPartCompletedPoint();
+    int getPartExpectedPoint();
+    double getPartSigma();
 
-    void setPartRatio(int);
-    void setPartCompleteness(int);
+    //set functions
+    void setPartCompletedPoint(int);
+    void setPartExpectedPoint(int);
+    void setPartSigma(double);
 
-    void addPartCompleteness(int);
+    //change functions
+    void addPartCompletedPoint(int);
+    void addPartExpectedPoint(int);
 
-    bool isComplete();
+    bool isCompleted();
 
     void printPartData();
 };

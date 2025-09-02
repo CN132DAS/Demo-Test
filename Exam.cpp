@@ -3,27 +3,33 @@
 using namespace std;
 
 
-Exam::Exam(int difficulty_, int part_num, int time, Player player):
+Exam::Exam(int part_num, int time, Player player, vector<tuple<int,int>> part_gen_list):
 partNum    (part_num),
 totalTime  (time),
-restTime   (time),
-difficulty (difficulty_ > player.getPlayerAbility()? difficulty_ - player.getPlayerAbility() :1)
+restTime   (time)
 {
-    parts = new ExamPart[partNum];
+    
     cout<<"Exam part num:"<<part_num<<endl;
-    cout<<"Exam difficulty:"<<difficulty<<endl;
     cout<<"Exam time:"<<restTime<<endl;
+    for(int _i = 0; _i < part_num; _i++){
+        parts[_i] = new ExamPart(
+            get<0>(part_gen_list[_i]),
+            get<1>(part_gen_list[_i]),
+            player.getPlayerAbility());
+    }
 }
 
 Exam::~Exam()
 {
-    delete[] parts;
+    for(auto i : parts){
+        delete i;
+    }
 }
 
 const int Exam::getCompleteness(){
     double _completeness = 0;
     for(int i = 0; i < partNum; i++){
-        _completeness += parts[i].getPartCompleteness();
+        _completeness += (*parts[i]).getPartCompletedPoint();
     }
     return _completeness;
 }
@@ -40,15 +46,6 @@ const int Exam::getRestTime(){
     return this->restTime;
 }
 
-const int Exam::getDifficulty()
-{
-    return difficulty;
-}
-
-const int Exam::getPartNum()
-{
-    return partNum;
-}
 
 void Exam::setEnergy(int val){
     if(val<=0){
@@ -81,6 +78,7 @@ void Exam::setRestTime(int val){
     }
 }
 
+/*
 bool Exam::setPartRatio(vector<int> ratio_vec)
 {
     if (ratio_vec.size() != partNum ){
@@ -104,6 +102,7 @@ bool Exam::setPartRatio(vector<int> ratio_vec)
         }
     }
 }
+*/
 
 const bool Exam::isOver()
 {
